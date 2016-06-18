@@ -59,7 +59,7 @@ names(yAllData) <- "activity"
 
 #Combine the data and write it out
 tidyData <- cbind(subjectAllData, yAllData, xAllData)
-write.table(tidyData, "tidyData.txt")
+write.table(tidyData, "tidyData.txt", row.name=FALSE)
 
 ################################################################################
 #5.From the data set in step 4, creates a second, independent tidy data set with 
@@ -71,4 +71,4 @@ library(plyr)
 meanData <- ddply(tidyData, .(subjectID, activity), function(x) colMeans(x[, 3:68]))
 
 #Save to file
-write.table(meanData, "meansBySubjectAndActivity.txt")
+write.table(meanData, "meansBySubjectAndActivity.txt", row.name=FALSE)
